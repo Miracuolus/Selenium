@@ -1,10 +1,22 @@
 import time
 from selenium import webdriver
+import secrets
 
 driver = webdriver.Chrome()
-time.sleep(5)
+driver.implicitly_wait(10)
+#time.sleep(5)
 driver.get("https://stepik.org/lesson/25969/step/12")
 time.sleep(5)
+profile = driver.find_element_by_id("ember130")
+profile.click()
+log = driver.find_element_by_name('login')
+log.send_keys(secrets.email)
+password = driver.find_element_by_name('password')
+password.send_keys(secrets.password)
+#enter = driver.find_element_by_css_selector('button')
+enter = driver.find_element_by_xpath("//button[@class='sign-form__btn button_with-loader ']")
+enter.click()
+time.sleep(10)
 textarea = driver.find_element_by_css_selector("textarea")
 textarea.send_keys("get()")
 time.sleep(5)
