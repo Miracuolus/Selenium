@@ -1,0 +1,1 @@
+This is a repository for storing homework for the course "Test Automation with Selenium and Python"
